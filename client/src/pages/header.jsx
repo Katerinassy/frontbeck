@@ -6,10 +6,11 @@ import { useNavigate } from "react-router-dom";
 const Header = () => {
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem('user'));
-
-    if (!user) {
-        return <p>Нет данных о пользователе. Пожалуйста, войдите.</p>;
+    const user_logout = () => {
+        localStorage.removeItem('user')
+        navigate('/login')
     }
+
     return (
         <header className="header">
             <div className="logo">
@@ -22,7 +23,13 @@ const Header = () => {
                 <a onClick={() => navigate("/catalog")} className="navbar__link">Каталог</a>
                 <a href='#sos' className="navbar__link">Написать нам</a>
                 <a href='#contact' className="navbar__link">Контакты</a>
-                <a onClick={() => navigate("/login")} className="navbar__link">Войти</a>
+                {user ?  (
+                    <>
+                     <a onClick={user_logout} className="navbar__link">Выйти</a>
+                     <a onClick={() => navigate("/")} className="navbar__link">Корзина</a>
+                    </>
+                ):(<a onClick={() => navigate("/login")} className="navbar__link">Войти</a>)}
+                
             </nav>
         </header>
     )

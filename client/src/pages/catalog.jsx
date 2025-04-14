@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { use } from 'react';
 import './../style/catalog.css';
 import card1 from '../img/card1.svg';
 import card2 from '../img/red.png';
@@ -15,7 +15,7 @@ import card12 from '../img/card12.svg';
 import card13 from '../img/card13.svg';
 import card14 from '../img/card14.svg';
 import card15 from '../img/card15.svg';
-
+import { useCart } from './cart';
 const productData = [
   {
     id: 1,
@@ -127,6 +127,7 @@ const productData = [
 ];
 
 const Catalog1 = () => {
+  const {addToCart} = useCart()
   return (
     <div className="catalog">
       <h1 className="catalog__title">Каталог</h1>
@@ -141,7 +142,7 @@ const Catalog1 = () => {
               <p className="product-card__description">{product.description}</p>
               <div className="product-card__footer">
                 <span className="product-card__price">{product.price}</span>
-                <a className="product-card__button">Заказать</a>
+                <a onClick={() => addToCart(product) } className="product-card__button">Заказать</a>
               </div>
             </div>
           </div>
