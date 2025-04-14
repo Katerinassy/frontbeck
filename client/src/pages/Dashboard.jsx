@@ -11,7 +11,7 @@ const Dashboard = () => {
 
   return (
     <div className="dashboard">
-        <Header />
+        <Header isLoginIn={LoginIn} />
         <h1>Добро пожаловать, {user?.name}!</h1>
         <p>Твоя почта: {user?.email}</p>
       <Footer />
