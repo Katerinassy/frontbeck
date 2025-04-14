@@ -4,6 +4,7 @@ import Catalog from './App2';
 import LoginUser from './App3';
 import RegisterForm from './pages/Register';
 import Dashboard from './pages/Dashboard';
+import Cart from './pages/cartchka';
 
 function Routers() {
   return (
@@ -13,6 +14,7 @@ function Routers() {
       <Route path="/login" element={<LoginUser/>}/>
       <Route path="/register" element={<RegisterForm/>}/>
       <Route path="/dashboard" element={<Dashboard/>}/>
+      <Route path="/cart" element={<Cart />} />
     </Routes>
   );
 }

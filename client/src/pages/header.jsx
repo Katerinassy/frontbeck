@@ -2,10 +2,12 @@ import React from 'react';
 import './../style/header.css'
 import logolove from './../img/love.svg';
 import { useNavigate } from "react-router-dom";
+import { useCart } from './cart';
 
 const Header = () => {
     const navigate = useNavigate();
     const user = JSON.parse(localStorage.getItem('user'));
+    const {cart} =useCart
     const user_logout = () => {
         localStorage.removeItem('user')
         navigate('/login')
@@ -26,7 +28,7 @@ const Header = () => {
                 {user ?  (
                     <>
                      <a onClick={user_logout} className="navbar__link">Выйти</a>
-                     <a onClick={() => navigate("/")} className="navbar__link">Корзина</a>
+                     <a onClick={() => navigate("/cart")} className="navbar__link">Корзина </a>
                     </>
                 ):(<a onClick={() => navigate("/login")} className="navbar__link">Войти</a>)}
                 
