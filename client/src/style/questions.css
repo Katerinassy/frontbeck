@@ -83,6 +83,13 @@
     background-color: #800748;
 }
 
+.success-message {
+    margin-top: 10px;
+    color: green;
+    font-size: 14px;
+    font-weight: bold;
+  }
+  
 /* Адаптивность */
 @media (max-width: 768px) {
     .question-block {
